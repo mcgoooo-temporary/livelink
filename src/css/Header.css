@@ -4,8 +4,9 @@
 
 .header img {
   margin: 0 auto;
-  width: 24rem;
+  max-width: 24rem;
   display: block;
+  width: 100%;
 }
 
 

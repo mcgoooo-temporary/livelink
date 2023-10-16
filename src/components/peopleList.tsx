@@ -1,50 +1,31 @@
+import {
+  useDispatchContext,
+  usePeopleContext,
+} from "../contexts/peopleContext";
 import "../css/peopleList.css";
+import { PersonDisplay } from "./person";
 
-export const PeopleList = () => (
-  <section className="people-list">
-    <ol>
-      <li>
-        <img src="https://picsum.photos/200/200" />
-        <div className="index-person__text-container">
-          <h2>Justin Sullivan</h2>
-          <p>ultris morbi arcu</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://picsum.photos/200/200" />
-        <div className="index-person__text-container">
-          <h2>Justin Sullivan</h2>
-          <p>ultris morbi arcu</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://picsum.photos/200/200" />
-        <div className="index-person__text-container">
-          <h2>Justin Sullivan</h2>
-          <p>ultris morbi arcu</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://picsum.photos/200/200" />
-        <div className="index-person__text-container">
-          <h2>Justin Sullivan</h2>
-          <p>ultris morbi arcu</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://picsum.photos/200/200" />
-        <div className="index-person__text-container">
-          <h2>Justin Sullivan</h2>
-          <p>ultris morbi arcu</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://picsum.photos/200/200" />
-        <div className="index-person__text-container">
-          <h2>Justin Sullivan</h2>
-          <p>ultris morbi arcu</p>
-        </div>
-      </li>
-    </ol>
-  </section>
-);
+export const PeopleList = () => {
+  const { people, selectedPerson } = usePeopleContext();
+  const dispatch = useDispatchContext();
+
+  // hacky solution, but time limit
+  const peopleList = selectedPerson
+    ? people.filter((person) => person.id === selectedPerson)
+    : people;
+
+  return (
+    <section className="people-list">
+      <ol>
+        {peopleList.map((person, index) => (
+          <PersonDisplay
+            key={`person-${index}`}
+            {...person}
+            dispatch={dispatch}
+            showDescription={!!selectedPerson}
+          ></PersonDisplay>
+        ))}
+      </ol>
+    </section>
+  );
+};
