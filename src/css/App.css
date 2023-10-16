@@ -1,0 +1,33 @@
+/* dont have time to add emotion css in js */
+
+html {
+  background: rgb(250,237,228);
+  font-size: 62.5%; /* 1rem == 10px */
+  font-family: sans-serif;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6.4rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-size: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  line-height: 2rem;
+  letter-spacing: 0.008rem;
+  font-size: 1.6rem;
+}
+
+li {
+  list-style-type: none;
+}

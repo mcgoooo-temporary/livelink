@@ -1,0 +1,40 @@
+.people-list ol {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.people-list li {
+  background: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-basis: 300px;
+  padding: 1rem;
+  gap: 1.6rem;
+  min-height:66px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.people-list li img {
+  border-radius: 100%;
+  width: 7rem;
+  height: 7rem;
+}
+
+.people-list li h2 {
+  font-weight: bold;
+  padding-bottom: 0.75rem;
+}
+
+
+
+/* @media screen and (min-width: 400px) {
+  .people-list ol {
+    flex-direction: row;
+  }
+} */
